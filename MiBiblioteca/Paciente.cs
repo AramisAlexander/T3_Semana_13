@@ -1,5 +1,6 @@
 ﻿namespace MiBiblioteca
 {
+    //Clase paciente
     public class Paciente
     {
         //Atributos de la clase paciente

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiBiblioteca
 {
+    //Clase administrativos 
     public class Administrativos
     {
         //Atributos de la clase administrativos

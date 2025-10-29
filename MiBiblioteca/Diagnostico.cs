@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiBiblioteca
 {
+    // Clase Diagnostico 
     public class Diagnostico
     {
         //Atributos de la clase diagnostico
