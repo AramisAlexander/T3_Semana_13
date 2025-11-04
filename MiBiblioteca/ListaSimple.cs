@@ -34,6 +34,29 @@ namespace MiBiblioteca
                 temp.siguiente = nuevoDato;
             }
         }
+        //Metodo para insertar los datos para poder buscar y mostrar el historiasl clinico del paciente
+        public void InsertarDatos2(Paciente p, Administrativos a, Diagnostico d)
+        {
+            Nodo nuevo = new Nodo();
+            nuevo.dato = p;
+            nuevo.dato2 = a;
+            nuevo.dato3 = d;
+
+            if (primero == null)
+            {
+                primero = nuevo;
+            }
+            else
+            {
+                Nodo temp = primero;
+                while (temp.siguiente != null)
+                {
+                    temp = temp.siguiente;
+                }
+                temp.siguiente = nuevo;
+            }
+        }
+
 
         //Metodo par mostrar los datos
         public void MostrarDatos()
@@ -48,7 +71,7 @@ namespace MiBiblioteca
         }
 
         //Metodo para buscar datos 
-        public void BuscarDatos(Paciente p)
+        public string BuscarDatos(Paciente p)
         {
             Nodo temp = primero;
 
@@ -56,13 +79,33 @@ namespace MiBiblioteca
             {
                 if (temp.dato.DNI == p.DNI)
                 {
-                    MessageBox.Show("Paciente encontrado ");
-                    Console.WriteLine(temp.dato);
-                    return;
+                    string resultado = "=== HISTORIA CLÍNICA DEL PACIENTE ===\n\n";
+                    resultado += "Nombre: " + temp.dato.ApellidosNombres + "\n";
+                    resultado += "DNI: " + temp.dato.DNI + "\n";
+                    resultado += "Edad: " + temp.dato.edad + "\n";
+                    resultado += "Sexo: " + temp.dato.sexo + "\n\n";
+
+                    if (temp.dato2 != null)
+                    {
+                        resultado += "Especialidad: " + temp.dato2.especialidad + "\n";
+                        resultado += "Fecha: " + temp.dato2.fecha + "\n";
+                        resultado += "Hora: " + temp.dato2.hora + "\n\n";
+                    }
+
+                    if (temp.dato3 != null)
+                    {
+                        resultado += "Diagnóstico: " + temp.dato3.diagnostico + "\n";
+                        resultado += "Tratamiento: " + temp.dato3.tratamiento + "\n";
+                    }
+
+                    return resultado;
                 }
+
                 temp = temp.siguiente;
             }
-            MessageBox.Show("Paciente no encontrado. No existe ninguna historia registrada. ");
+            return "Paciente no encontrado. No existe ninguna historia registrada. ";
+
+
         }
     }
 }

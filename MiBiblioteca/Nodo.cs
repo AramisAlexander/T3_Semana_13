@@ -11,6 +11,7 @@ namespace MiBiblioteca
     {
         public Paciente dato;
         public Administrativos dato2;
+        public Diagnostico dato3;
 
         //puntero para lista enlazada, cola
         public Nodo siguiente = null;

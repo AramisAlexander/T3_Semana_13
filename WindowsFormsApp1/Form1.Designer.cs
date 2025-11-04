@@ -34,8 +34,6 @@
             this.tcMenu = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbPrioridad = new System.Windows.Forms.ComboBox();
-            this.lblPrioridad = new System.Windows.Forms.Label();
             this.txtHora = new System.Windows.Forms.TextBox();
             this.btnEnviarSalaEspera = new System.Windows.Forms.Button();
             this.txtFecha = new System.Windows.Forms.TextBox();
@@ -44,6 +42,8 @@
             this.cbEspecialidad = new System.Windows.Forms.ComboBox();
             this.lblEspecialidad = new System.Windows.Forms.Label();
             this.gpDatosPaciente = new System.Windows.Forms.GroupBox();
+            this.cbPrioridad = new System.Windows.Forms.ComboBox();
+            this.lblPrioridad = new System.Windows.Forms.Label();
             this.cbSexo = new System.Windows.Forms.ComboBox();
             this.txtEdad = new System.Windows.Forms.TextBox();
             this.txtDNI = new System.Windows.Forms.TextBox();
@@ -54,6 +54,7 @@
             this.lblNombresApellidos = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.gbAtenderPaciente = new System.Windows.Forms.GroupBox();
+            this.btnGuardarDiagnosticoPaciente = new System.Windows.Forms.Button();
             this.txtTratamiento = new System.Windows.Forms.TextBox();
             this.txtDiagnostico = new System.Windows.Forms.TextBox();
             this.lblTratamiento = new System.Windows.Forms.Label();
@@ -76,7 +77,6 @@
             this.pbLogo = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnGuardarDiagnosticoPaciente = new System.Windows.Forms.Button();
             this.tcMenu.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -149,8 +149,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbPrioridad);
-            this.groupBox1.Controls.Add(this.lblPrioridad);
             this.groupBox1.Controls.Add(this.txtHora);
             this.groupBox1.Controls.Add(this.btnEnviarSalaEspera);
             this.groupBox1.Controls.Add(this.txtFecha);
@@ -164,26 +162,6 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos administrativos";
-            // 
-            // cbPrioridad
-            // 
-            this.cbPrioridad.FormattingEnabled = true;
-            this.cbPrioridad.Items.AddRange(new object[] {
-            "Si",
-            "No"});
-            this.cbPrioridad.Location = new System.Drawing.Point(108, 73);
-            this.cbPrioridad.Name = "cbPrioridad";
-            this.cbPrioridad.Size = new System.Drawing.Size(73, 24);
-            this.cbPrioridad.TabIndex = 10;
-            // 
-            // lblPrioridad
-            // 
-            this.lblPrioridad.AutoSize = true;
-            this.lblPrioridad.Location = new System.Drawing.Point(40, 81);
-            this.lblPrioridad.Name = "lblPrioridad";
-            this.lblPrioridad.Size = new System.Drawing.Size(62, 16);
-            this.lblPrioridad.TabIndex = 9;
-            this.lblPrioridad.Text = "Prioridad:";
             // 
             // txtHora
             // 
@@ -200,6 +178,7 @@
             this.btnEnviarSalaEspera.TabIndex = 8;
             this.btnEnviarSalaEspera.Text = "Enviar a sala de espera";
             this.btnEnviarSalaEspera.UseVisualStyleBackColor = true;
+            this.btnEnviarSalaEspera.Click += new System.EventHandler(this.btnEnviarSalaEspera_Click);
             // 
             // txtFecha
             // 
@@ -252,6 +231,8 @@
             // 
             // gpDatosPaciente
             // 
+            this.gpDatosPaciente.Controls.Add(this.cbPrioridad);
+            this.gpDatosPaciente.Controls.Add(this.lblPrioridad);
             this.gpDatosPaciente.Controls.Add(this.cbSexo);
             this.gpDatosPaciente.Controls.Add(this.txtEdad);
             this.gpDatosPaciente.Controls.Add(this.txtDNI);
@@ -266,6 +247,26 @@
             this.gpDatosPaciente.TabIndex = 10;
             this.gpDatosPaciente.TabStop = false;
             this.gpDatosPaciente.Text = "Datos del paciente";
+            // 
+            // cbPrioridad
+            // 
+            this.cbPrioridad.FormattingEnabled = true;
+            this.cbPrioridad.Items.AddRange(new object[] {
+            "SI",
+            "NO"});
+            this.cbPrioridad.Location = new System.Drawing.Point(365, 103);
+            this.cbPrioridad.Name = "cbPrioridad";
+            this.cbPrioridad.Size = new System.Drawing.Size(73, 24);
+            this.cbPrioridad.TabIndex = 17;
+            // 
+            // lblPrioridad
+            // 
+            this.lblPrioridad.AutoSize = true;
+            this.lblPrioridad.Location = new System.Drawing.Point(297, 111);
+            this.lblPrioridad.Name = "lblPrioridad";
+            this.lblPrioridad.Size = new System.Drawing.Size(62, 16);
+            this.lblPrioridad.TabIndex = 16;
+            this.lblPrioridad.Text = "Prioridad:";
             // 
             // cbSexo
             // 
@@ -363,6 +364,18 @@
             this.gbAtenderPaciente.TabStop = false;
             this.gbAtenderPaciente.Text = "Atendiendo paciente";
             // 
+            // btnGuardarDiagnosticoPaciente
+            // 
+            this.btnGuardarDiagnosticoPaciente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarDiagnosticoPaciente.ForeColor = System.Drawing.Color.Black;
+            this.btnGuardarDiagnosticoPaciente.Location = new System.Drawing.Point(239, 138);
+            this.btnGuardarDiagnosticoPaciente.Name = "btnGuardarDiagnosticoPaciente";
+            this.btnGuardarDiagnosticoPaciente.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardarDiagnosticoPaciente.TabIndex = 6;
+            this.btnGuardarDiagnosticoPaciente.Text = "Guardar";
+            this.btnGuardarDiagnosticoPaciente.UseVisualStyleBackColor = true;
+            this.btnGuardarDiagnosticoPaciente.Click += new System.EventHandler(this.btnGuardarDiagnosticoPaciente_Click);
+            // 
             // txtTratamiento
             // 
             this.txtTratamiento.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -432,6 +445,7 @@
             this.btnAtenderPaciente.TabIndex = 1;
             this.btnAtenderPaciente.Text = "Atender";
             this.btnAtenderPaciente.UseVisualStyleBackColor = true;
+            this.btnAtenderPaciente.Click += new System.EventHandler(this.btnAtenderPaciente_Click);
             // 
             // dgvPacienteEspera
             // 
@@ -517,6 +531,7 @@
             this.btnBuscarHistoria.TabIndex = 2;
             this.btnBuscarHistoria.Text = "Buscar";
             this.btnBuscarHistoria.UseVisualStyleBackColor = true;
+            this.btnBuscarHistoria.Click += new System.EventHandler(this.btnBuscarHistoria_Click);
             // 
             // txtBuscarDni
             // 
@@ -577,17 +592,6 @@
             this.guna2HtmlLabel1.TabIndex = 4;
             this.guna2HtmlLabel1.Text = "Atención Medica\r\n";
             // 
-            // btnGuardarDiagnosticoPaciente
-            // 
-            this.btnGuardarDiagnosticoPaciente.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarDiagnosticoPaciente.ForeColor = System.Drawing.Color.Black;
-            this.btnGuardarDiagnosticoPaciente.Location = new System.Drawing.Point(239, 138);
-            this.btnGuardarDiagnosticoPaciente.Name = "btnGuardarDiagnosticoPaciente";
-            this.btnGuardarDiagnosticoPaciente.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardarDiagnosticoPaciente.TabIndex = 6;
-            this.btnGuardarDiagnosticoPaciente.Text = "Guardar";
-            this.btnGuardarDiagnosticoPaciente.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -640,8 +644,6 @@
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cbPrioridad;
-        private System.Windows.Forms.Label lblPrioridad;
         private System.Windows.Forms.TextBox txtHora;
         private System.Windows.Forms.Button btnEnviarSalaEspera;
         private System.Windows.Forms.TextBox txtFecha;
@@ -678,6 +680,8 @@
         private System.Windows.Forms.Label lblDiagnostico;
         private System.Windows.Forms.DataGridView dgvAtendiendoPaciente;
         private System.Windows.Forms.Button btnGuardarDiagnosticoPaciente;
+        private System.Windows.Forms.ComboBox cbPrioridad;
+        private System.Windows.Forms.Label lblPrioridad;
     }
 }
 

@@ -11,9 +11,8 @@ namespace MiBiblioteca
     {
         //Atributos de la clase administrativos
         public string especialidad;
-        public int fecha;
-        public int prioridad;
-        public int hora;
+        public string fecha;
+        public string hora;
 
         //Constructor vacio
         public Administrativos() 
@@ -22,18 +21,17 @@ namespace MiBiblioteca
         }
 
         //Constructor con parametros
-        public Administrativos(string especialidad, int fecha, int prioridad, int hora)
+        public Administrativos(string especialidad, string fecha,string hora)
         {
             this.especialidad = especialidad;
             this.fecha = fecha;
-            this.prioridad = prioridad;
             this.hora = hora;
         }
 
         //Metodo para imprimir los datos
         public override string ToString()
         {
-            return $"Especialidad: {especialidad}\nPrioridad: {prioridad}\nFecha: {fecha}\nHora: {hora}";
+            return $"Especialidad: {especialidad}\nFecha: {fecha}\nHora: {hora}";
         }
     }
 }

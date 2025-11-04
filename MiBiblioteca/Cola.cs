@@ -14,10 +14,10 @@ namespace MiBiblioteca
         public Nodo final = null;
 
         //Metodo para encolar 
-        public void Encolar(Administrativos admi)
+        public void Encolar(Paciente p)
         {
             Nodo nuevoDato = new Nodo();
-            nuevoDato.dato2 = admi;
+            nuevoDato.dato = p;
 
             if (frente == null)
             {
@@ -26,7 +26,7 @@ namespace MiBiblioteca
             }
             else
             {
-                if (admi.prioridad == 0)// ultimo lugar
+                if (p.prioridad == 0)// ultimo lugar
                 {
                     final.siguiente = nuevoDato;
                     final = nuevoDato;
@@ -34,7 +34,7 @@ namespace MiBiblioteca
                 else
                 {
                     // Situación 1: la cola no tenga clientes con prioridad
-                    if (frente.dato2.prioridad == 0)// el primero no tiene prioridad
+                    if (frente.dato.prioridad == 0)// el primero no tiene prioridad
                     {
                         nuevoDato.siguiente = frente;// el nuevo apunta al primero con prioridad
                         frente = nuevoDato;// actualizamos el frente
@@ -44,7 +44,7 @@ namespace MiBiblioteca
                     {
                         Nodo temp = frente;
 
-                        while (temp != null && temp.siguiente.dato2.prioridad == 1)
+                        while (temp != null && temp.siguiente.dato.prioridad == 1)
                         {
                             temp = temp.siguiente;
                         }

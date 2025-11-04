@@ -22,7 +22,7 @@ namespace MiBiblioteca
                 Nodo nuevoDato = new Nodo();
                 nuevoDato.dato = p;
                 raiz = nuevoDato;
-                MessageBox.Show("El paciente fue registrado correctamente.");
+                MessageBox.Show("El paciente fue registrado correctamente: Paciente enviado a sala de espera.");
             }
             else
             {
